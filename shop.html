@@ -3,72 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Premium CSS Engine Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">INVENT<span>.CSS</span></div>
-        <nav>
-           <a href="index.html" class="nav-link">Home</a>
+    <header class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <div class="container">
+            <a class="logo text-decoration-none" href="index.html">INVENT<span>.CSS</span></a>
+            <div class="ms-auto">
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
                     <a href="research.html" class="nav-link">Research</a>
-                    <a href="shop.html" class="nav-link">Monetization</a>
-                    <a href="contact.html" class="nav-link active">Contact</a>
-        </nav>
+                    <a href="shop.html" class="nav-link active">Monetization</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <main class="shop-container">
-        <header class="shop-header">
-            <span class="shop-tag">Commercial Core Licenses</span>
-            <h1>Acquire Pre-Engineered Pure CSS Assets</h1>
-            <p>Skip the JavaScript overhead. Buy high-performance, drop-in HTML/CSS files designed to maximize layout speeds and aesthetic impact.</p>
+    <main class="container my-5 py-4">
+        <header class="shop-header text-center max-width-700 mx-auto mb-5">
+            <span class="shop-tag d-inline-block mb-3">Instant WhatsApp Checkout</span>
+            <h1 class="display-5 fw-bold text-white mb-3">Acquire Pre-Engineered Pure CSS Assets</h1>
+            <p class="text-muted">Skip the signup forms. Click any asset to open a direct chat, transfer via EasyPaisa/Bank, and receive your clean source code instantly.</p>
         </header>
 
-        <section class="products-grid">
+        <section class="row g-4">
             
-            <div class="product-card">
-                <div class="product-preview-box">
-                    <span class="matrix-code">&lt;css-3d&gt;</span>
-                </div>
-                <div class="product-info">
-                    <span class="license-type">Commercial License</span>
-                    <h3>The Isometric 3D Layer Engine</h3>
-                    <p>The exact framework used on our homepage. Fully responsive, easily customizable, zero JavaScript dependencies.</p>
-                    <div class="product-footer">
-                        <span class="price">$49</span>
-                        <a href="#buy" class="buy-btn">Purchase Source</a>
+            <div class="col-md-4">
+                <div class="product-card h-100 d-flex flex-column justify-content-between">
+                    <div class="product-preview-box">
+                        <span class="matrix-code">&lt;css-3d&gt;</span>
+                    </div>
+                    <div class="product-info p-4">
+                        <span class="license-type">Commercial License</span>
+                        <h3 class="h5 my-2 text-white">The Isometric 3D Layer Engine</h3>
+                        <p class="text-muted small">The exact framework used on our homepage. Fully responsive, easily customizable, zero JavaScript dependencies.</p>
+                        <div class="product-footer d-flex justify-content-between align-items-center mt-4 pt-3 border-top border-secondary border-opacity-25">
+                            <span class="price h4 m-0 text-white">PKR 5,000</span>
+                            <a href="https://wa.me/923261937058?text=Hello!%20I%20want%20to%20purchase%20the%20Isometric%203D%20Layer%20Engine%20for%20PKR%205000." 
+                               target="_blank" class="buy-btn text-decoration-none">Order via WA</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-preview-box spec-neon">
-                    <span class="matrix-code">[ui-data]</span>
-                </div>
-                <div class="product-info">
-                    <span class="license-type">Developer Core</span>
-                    <h3>Pure CSS Interactive Dashboard</h3>
-                    <p>A full layout showcasing charts, grid blocks, and dynamic toggle states built entirely via native checkbox architectures.</p>
-                    <div class="product-footer">
-                        <span class="price">$79</span>
-                        <a href="#buy" class="buy-btn">Purchase Source</a>
+            <div class="col-md-4">
+                <div class="product-card h-100 d-flex flex-column justify-content-between">
+                    <div class="product-preview-box spec-neon">
+                        <span class="matrix-code">[ui-data]</span>
+                    </div>
+                    <div class="product-info p-4">
+                        <span class="license-type">Developer Core</span>
+                        <h3 class="h5 my-2 text-white">Pure CSS Interactive Dashboard</h3>
+                        <p class="text-muted small">A full layout showcasing charts, grid blocks, and dynamic toggle states built entirely via native checkbox architectures.</p>
+                        <div class="product-footer d-flex justify-content-between align-items-center mt-4 pt-3 border-top border-secondary border-opacity-25">
+                            <span class="price h4 m-0 text-white">PKR 8,000</span>
+                            <a href="https://wa.me/923261937058?text=Hello!%20I%20want%20to%20purchase%20the%20Pure%20CSS%20Interactive%20Dashboard%20for%20PKR%208000." 
+                               target="_blank" class="buy-btn text-decoration-none">Order via WA</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-preview-box spec-purple">
-                    <span class="matrix-code">#a11y-skin</span>
-                </div>
-                <div class="product-info">
-                    <span class="license-type">Enterprise Asset</span>
-                    <h3>Adaptive Universal Skin</h3>
-                    <p>A dynamic theme engine that changes page accessibility properties instantly using custom variables without reloading script assets.</p>
-                    <div class="product-footer">
-                        <span class="price">$120</span>
-                        <a href="#buy" class="buy-btn">Purchase Source</a>
+            <div class="col-md-4">
+                <div class="product-card h-100 d-flex flex-column justify-content-between">
+                    <div class="product-preview-box spec-purple">
+                        <span class="matrix-code">#a11y-skin</span>
+                    </div>
+                    <div class="product-info p-4">
+                        <span class="license-type">Enterprise Asset</span>
+                        <h3 class="h5 my-2 text-white">Adaptive Universal Skin</h3>
+                        <p class="text-muted small">A dynamic theme engine that changes page accessibility properties instantly using custom variables without reloading script assets.</p>
+                        <div class="product-footer d-flex justify-content-between align-items-center mt-4 pt-3 border-top border-secondary border-opacity-25">
+                            <span class="price h4 m-0 text-white">PKR 12,000</span>
+                            <a href="https://wa.me/923261937058?text=Hello!%20I%20want%20to%20purchase%20the%20Adaptive%20Universal%20Skin%20for%20PKR%2012000." 
+                               target="_blank" class="buy-btn text-decoration-none">Order via WA</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -529,3 +529,76 @@ code {
     box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
     transform: translateY(-2px);
 }
+/* --- PREMIUM PRODUCT PREVIEW ARTWORK --- */
+
+/* 1. The Isometric 3D Engine Preview (<css-3d>) */
+.product-preview-box {
+    height: 180px;
+    background: radial-gradient(circle at center, #1a233a 0%, #0b0f19 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Creates a fake floating 3D wireframe cube inside the first box */
+.product-preview-box::after {
+    content: '';
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 255, 204, 0.1);
+    border: 2px solid var(--accent-color);
+    transform: rotateX(45deg) rotateZ(45deg);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.3),
+                inset 0 0 15px rgba(0, 255, 204, 0.2);
+    animation: floatCube 4s ease-in-out infinite;
+}
+
+/* 2. Pure CSS Interactive Dashboard Preview ([ui-data]) */
+.spec-neon {
+    background: radial-gradient(circle at center, #191430 0%, #0b0f19 100%);
+}
+
+/* Creates abstract neon dashboard bars/graphs using pure CSS lines */
+.spec-neon::after {
+    content: '';
+    width: 70px;
+    height: 45px;
+    background: linear-gradient(90deg, 
+        var(--secondary-accent) 0%, var(--secondary-accent) 20%, transparent 20%, 
+        transparent 30%, #00ffcc 30%, #00ffcc 70%, transparent 70%,
+        transparent 80%, var(--secondary-accent) 80%, var(--secondary-accent) 100%);
+    border-bottom: 3px solid #fff;
+    opacity: 0.7;
+    box-shadow: 0 5px 15px rgba(112, 0, 255, 0.3);
+}
+
+/* 3. Adaptive Universal Skin Preview (#a11y-skin) */
+.spec-purple {
+    background: radial-gradient(circle at center, #2d1226 0%, #0b0f19 100%);
+}
+
+/* Creates a split-contrast circle representing a 'UI Dark/Light Skin' switch */
+.spec-purple::after {
+    content: '';
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #ff0080 50%, transparent 50%);
+    border: 2px solid #ff0080;
+    box-shadow: 0 0 25px rgba(255, 0, 128, 0.4);
+    transform: rotate(-30deg);
+}
+
+/* Hide the old text placeholders so only our beautiful CSS artwork shows */
+.matrix-code {
+    display: none;
+}
+
+/* Floating animation for the 3D cube asset */
+@keyframes floatCube {
+    0%, 100% { transform: rotateX(45deg) rotateZ(45deg) translateY(0px); }
+    50% { transform: rotateX(45deg) rotateZ(45deg) translateY(-10px); }
+}
