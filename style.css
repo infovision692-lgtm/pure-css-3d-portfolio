@@ -1,0 +1,531 @@
+/* --- Global Resets & Variables --- */
+:root {
+    --bg-color: #0b0f19;
+    --text-color: #ffffff;
+    --accent-color: #00ffcc;
+    --secondary-accent: #7000ff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+nav a {
+    color: #a0aec0;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-color);
+}
+
+/* --- Hero Layout --- */
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 4rem 5%;
+    min-height: 80vh;
+    gap: 2rem;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent-color);
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+}
+
+.hero-text p {
+    color: #a0aec0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+/* --- Buttons --- */
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+.primary-btn:hover {
+    box-shadow: 0 0 25px var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    border: 1px solid var(--secondary-accent);
+    color: #fff;
+}
+
+.secondary-btn:hover {
+    background: var(--secondary-accent);
+    transform: translateY(-2px);
+}
+
+/* --- The 3D Isometric Invention Engine --- */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Creates the 3D depth perspective environment */
+    perspective: 1000px; 
+}
+
+.isometric-grid {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    /* Tilts the entire world view into an isometric angle */
+    transform: rotateX(60deg) rotateZ(-45deg);
+    transform-style: preserve-3d;
+}
+
+/* Base Card Setup */
+.iso-card {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-out;
+}
+
+/* Staggering the cards in 3D space */
+.layer-1 { top: 0; left: 0; z-index: 2; }
+.layer-2 { bottom: 0; right: 0; z-index: 1; }
+
+/* Extruding flat squares into 3D boxes using translations */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(112, 0, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    backdrop-filter: blur(10px);
+    transform: translateZ(40px); /* Lifts the top face up */
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.top h3 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.top p {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+/* Creating the side depth walls */
+.left {
+    transform: rotateY(-90deg) translateZ(0px);
+    transform-origin: left;
+    width: 40px; /* matches translateZ of top */
+    background: #130030;
+}
+
+.front {
+    transform: rotateX(-90deg) translateZ(-220px);
+    transform-origin: bottom;
+    height: 40px; /* matches translateZ of top */
+    background: #260061;
+}
+
+/* --- The Pure CSS Animation Hover State --- */
+/* When hovered, the card physically lifts higher along the Z-axis natively */
+.iso-card:hover {
+    transform: translateZ(30px);
+}
+
+.iso-card:hover .top {
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(112, 0, 255, 0.2));
+    border-color: var(--accent-color);
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+}
+/* --- RESEARCH PAGE STYLES --- */
+.research-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    padding: 2rem 5% 5rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Sidebar Navigation */
+.paper-sidebar {
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+.paper-sidebar h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.paper-sidebar ul {
+    list-style: none;
+}
+
+.paper-sidebar li {
+    margin-bottom: 0.8rem;
+}
+
+.paper-sidebar a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.paper-sidebar a:hover {
+    color: var(--accent-color);
+}
+
+/* Paper Content Area */
+.paper-body {
+    max-width: 800px;
+}
+
+.paper-tag {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+
+.paper-header h1 {
+    font-size: 2.5rem;
+    margin: 0.5rem 0 1rem 0;
+    line-height: 1.3;
+}
+
+.author {
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, var(--accent-color), transparent);
+    margin: 2rem 0;
+}
+
+.paper-section {
+    margin-bottom: 3.5rem;
+}
+
+.paper-section h2 {
+    font-size: 1.5rem;
+    color: #f1f5f9;
+    margin-bottom: 1rem;
+}
+
+.paper-section p {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.paper-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: #94a3b8;
+}
+
+.paper-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+blockquote {
+    border-left: 3px solid var(--secondary-accent);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #e2e8f0;
+}
+
+code {
+    background: rgba(112, 0, 255, 0.15);
+    color: #e2e8f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* Research Comparison Table */
+.research-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.research-table th, .research-table td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.research-table th {
+    background: rgba(112, 0, 255, 0.1);
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.research-table td {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+/* Responsive adjust for smaller screens */
+@media (max-width: 768px) {
+    .research-container {
+        grid-template-columns: 1fr;
+    }
+    .paper-sidebar {
+        display: none; /* Hide sidebar map on mobile */
+    }
+}
+
+/* --- SHOP / MONETIZATION PAGE STYLES --- */
+.shop-container {
+    padding: 2rem 5% 5rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.shop-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem auto;
+}
+
+.shop-tag {
+    font-size: 0.8rem;
+    color: var(--secondary-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: monospace;
+    background: rgba(112, 0, 255, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(112, 0, 255, 0.3);
+}
+
+.shop-header h1 {
+    font-size: 2.8rem;
+    margin: 1.5rem 0 1rem 0;
+    line-height: 1.2;
+}
+
+.shop-header p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* Products Grid Layout */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* Individual Product Cards */
+.product-card {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 204, 0.3);
+}
+
+/* Abstract visual representation of code */
+.product-preview-box {
+    height: 180px;
+    background: linear-gradient(45deg, #131927, #0b0f19);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-preview-box::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(0, 255, 204, 0.05) 0%, transparent 70%);
+}
+
+.spec-neon::before {
+    background: radial-gradient(circle, rgba(112, 0, 255, 0.1) 0%, transparent 70%);
+}
+
+.spec-purple::before {
+    background: radial-gradient(circle, rgba(255, 0, 128, 0.05) 0%, transparent 70%);
+}
+
+.matrix-code {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 1px;
+    z-index: 1;
+}
+
+/* Details inside product card */
+.product-info {
+    padding: 1.5rem;
+}
+
+.license-type {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.product-info h3 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.8rem 0;
+    color: #f1f5f9;
+}
+
+.product-info p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    height: 70px; /* Forces cards to have matching heights */
+    overflow: hidden;
+}
+
+/* Footer layout inside product cards */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.buy-btn {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.buy-btn:hover {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+/* --- WHATSAPP BUTTON STYLING --- */
+.whatsapp-btn {
+    background-color: #25d366;
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #20ba5a;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+    transform: translateY(-2px);
+}
